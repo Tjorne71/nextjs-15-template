@@ -1,5 +1,11 @@
 # NEXT JS 15 CUSTOM TEMPLATE
 
+To use this template, run the following command:
+
+```bash
+npx create-next-app --use-template https://github.com/Tjorne71/nextjs-15-template <YOUR_APP_NAME>
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
