@@ -1,19 +1,30 @@
 import type { Config } from "tailwindcss";
+import tailwindTypography from "@tailwindcss/typography";
+import { animation, keyframes, colors, fontFamily, components } from "./src/shared/styles";
+import plugin from "tailwindcss/plugin";
+import tailwindAnimate from "tailwindcss-animate";
+import tailwindContainerQueries from "@tailwindcss/container-queries";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  corePlugins: {
+    container: false,
+  },
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: fontFamily,
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      colors,
+      animation,
+      keyframes,
     },
   },
-  plugins: [],
+  plugins: [
+    tailwindTypography,
+    tailwindAnimate,
+    tailwindContainerQueries,
+    plugin((pluginAPI) => {
+      components(pluginAPI);
+    }),
+  ],
 };
 export default config;

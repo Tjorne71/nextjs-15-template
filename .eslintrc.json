@@ -1,3 +1,89 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript", "eslint:recommended"],
+  "plugins": ["eslint-plugin-react-compiler", "boundaries", "no-relative-import-paths", "@typescript-eslint"],
+  "settings": {
+    "boundaries/include": ["src/**/*"],
+    "boundaries/elements": [
+      {
+        "mode": "full",
+        "type": "shared",
+        "pattern": ["src/shared/**/*"]
+      },
+      {
+        "mode": "full",
+        "type": "feature",
+        "capture": ["featureName"],
+        "pattern": ["src/feature/*/**/*"]
+      },
+      {
+        "mode": "full",
+        "type": "app",
+        "capture": ["_", "fileName"],
+        "pattern": ["src/app/**/*"]
+      },
+      {
+        "mode": "full",
+        "type": "neverImport",
+        "pattern": ["src/*"]
+      }
+    ]
+  },
+  "rules": {
+    "react-compiler/react-compiler": "error",
+    "no-relative-import-paths/no-relative-import-paths": ["warn", { "allowSameFolder": true, "rootDir": "src", "prefix": "@" }],
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": ["typeLike", "enumMember"],
+        "format": ["PascalCase"]
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": [
+      "error",
+      {
+        "ignoreParameters": true,
+        "ignoreProperties": true
+      }
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": ["info", "warn", "error"]
+      }
+    ],
+    "boundaries/no-unknown": ["error"],
+    "boundaries/no-unknown-files": ["error"],
+    "boundaries/element-types": [
+      "error",
+      {
+        "default": "disallow",
+        "rules": [
+          {
+            "from": ["shared"],
+            "allow": ["shared"]
+          },
+          {
+            "from": ["feature"],
+            "allow": ["shared", ["feature", { "featureName": "${from.featureName" }]]
+          },
+          {
+            "from": ["app", "neverImport"],
+            "allow": ["shared", "feature"]
+          },
+          {
+            "from": ["app"],
+            "allow": [["app", { "fileName": "*.css" }]]
+          }
+        ]
+      }
+    ]
+  }
 }
