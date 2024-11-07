@@ -1,6 +1,17 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "eslint:recommended"],
-  "plugins": ["eslint-plugin-react-compiler", "boundaries", "no-relative-import-paths", "@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint:recommended",
+    "plugin:storybook/recommended"
+  ],
+  "plugins": [
+    "eslint-plugin-react-compiler",
+    "boundaries",
+    "no-relative-import-paths",
+    "@typescript-eslint"
+  ],
+  "ignorePatterns": ["scripts/**", "src/shared/lib/firebase/generated/**/*"],
   "settings": {
     "boundaries/include": ["src/**/*"],
     "boundaries/elements": [
@@ -30,7 +41,14 @@
   },
   "rules": {
     "react-compiler/react-compiler": "error",
-    "no-relative-import-paths/no-relative-import-paths": ["warn", { "allowSameFolder": true, "rootDir": "src", "prefix": "@" }],
+    "no-relative-import-paths/no-relative-import-paths": [
+      "warn",
+      {
+        "allowSameFolder": true,
+        "rootDir": "src",
+        "prefix": "@"
+      }
+    ],
     "@typescript-eslint/naming-convention": [
       "warn",
       {
@@ -72,7 +90,15 @@
           },
           {
             "from": ["feature"],
-            "allow": ["shared", ["feature", { "featureName": "${from.featureName" }]]
+            "allow": [
+              "shared",
+              [
+                "feature",
+                {
+                  "featureName": "${from.featureName}"
+                }
+              ]
+            ]
           },
           {
             "from": ["app", "neverImport"],
@@ -80,7 +106,14 @@
           },
           {
             "from": ["app"],
-            "allow": [["app", { "fileName": "*.css" }]]
+            "allow": [
+              [
+                "app",
+                {
+                  "fileName": "*.css"
+                }
+              ]
+            ]
           }
         ]
       }
