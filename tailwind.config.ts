@@ -1,15 +1,20 @@
-import type { Config } from "tailwindcss";
-import tailwindTypography from "@tailwindcss/typography";
-import { animation, keyframes, colors, fontFamily, components } from "./src/shared/styles";
-import plugin from "tailwindcss/plugin";
-import tailwindAnimate from "tailwindcss-animate";
-import tailwindContainerQueries from "@tailwindcss/container-queries";
+import type { Config } from 'tailwindcss';
+import tailwindTypography from '@tailwindcss/typography';
+import {
+  animation,
+  keyframes,
+  colors,
+  fontFamily,
+  components,
+} from './src/shared/styles';
+import plugin from 'tailwindcss/plugin';
+import tailwindAnimate from 'tailwindcss-animate';
 
 const config: Config = {
-  corePlugins: {
-    container: false,
-  },
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     fontFamily: fontFamily,
     extend: {
@@ -21,7 +26,6 @@ const config: Config = {
   plugins: [
     tailwindTypography,
     tailwindAnimate,
-    tailwindContainerQueries,
     plugin((pluginAPI) => {
       components(pluginAPI);
     }),
