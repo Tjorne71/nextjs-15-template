@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "svg": "svgr --silent --icon --no-dimensions --typescript --no-prettier --index-template ./src/shared/lib/svgr/index-template.js --out-dir ./src/shared/ui/icon/generated-icons ./public/icons",
+    "postinstall": "npm run svg"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -37,6 +39,7 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^4.0.3",
     "typescript": "^5",
-    "typescript-eslint": "^8.11.0"
+    "typescript-eslint": "^8.11.0",
+    "@svgr/cli": "^8.1.0"
   }
 }
