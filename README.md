@@ -3,7 +3,7 @@
 To use this template, run the following command:
 
 ```bash
-npx create-next-app --example https://github.com/Tjorne71/nextjs-15-template <YOUR_APP_NAME>
+npx create-next-app e <YOUR_APP_NAME> -e https://github.com/Tjorne71/nextjs-15-template
 ```
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
@@ -22,23 +22,18 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Included in Template
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### SVGR
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### SHADCN UI
 
-## Learn More
+### eslint-plugin-boundaries
 
-To learn more about Next.js, take a look at the following resources:
+To ensure the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Any file can import any files from the shared folder
+- A feature cannot import files from other feature folders
+- No file can be imported from the app folder
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### FEATURE SCRIPT
